@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Virtual Wardrobe</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<h1>👗 My Virtual Wardrobe</h1>
+
+<section class="add-item">
+    <input type="text" id="itemName" placeholder="Clothing item (e.g. White Shirt)">
+
+    <select id="category">
+        <option value="Top">Top</option>
+        <option value="Bottom">Bottom</option>
+        <option value="Dress">Dress</option>
+        <option value="Shoes">Shoes</option>
+        <option value="Accessory">Accessory</option>
+    </select>
+
+    <button onclick="addItem()">Add to Wardrobe</button>
+</section>
+
+<section>
+    <h2>🧺 Wardrobe</h2>
+    <div id="wardrobe" class="wardrobe"></div>
+</section>
+
+<section class="calendar-section">
+    <h2>📅 Outfit Planner</h2>
+
+    <input type="date" id="outfitDate" />
+
+    <button onclick="generateOutfit()">Generate Outfit</button>
+    <button onclick="saveOutfit()">Save Outfit</button>
+
+    <p id="outfitcalendarResult"></p>
+</section>
+
+<section>
+    <h2>🗂 Saved Outfits</h2>
+    <div id="savedOutfits"></div>
+</section>
+
+<section>
+    <h2>✨ Random Outfit Generator</h2>
+    <button onclick="generateOutfit()">Generate Outfit</button>
+    <p id="outfitResult"></p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
