@@ -1,8 +1,16 @@
 let wardrobeItems = [];
 let currentOutfit = "";
 
-// Load saved outfits on page load
-window.onload = displaySavedOutfits;
+// Load saved wardrobe + outfits on page load
+window.onload = function () {
+    const savedWardrobe = JSON.parse(localStorage.getItem("wardrobeItems"));
+    if (savedWardrobe) {
+        wardrobeItems = savedWardrobe;
+        displayWardrobe();
+    }
+
+    displaySavedOutfits();
+};
 
 function addItem() {
     const name = document.getElementById("itemName").value;
@@ -13,6 +21,7 @@ function addItem() {
     wardrobeItems.push({ name, category });
     document.getElementById("itemName").value = "";
 
+    saveWardrobe();
     displayWardrobe();
 }
 
@@ -29,6 +38,10 @@ function displayWardrobe() {
         `;
         wardrobe.appendChild(div);
     });
+}
+
+function saveWardrobe() {
+    localStorage.setItem("wardrobeItems", JSON.stringify(wardrobeItems));
 }
 
 function generateOutfit() {
